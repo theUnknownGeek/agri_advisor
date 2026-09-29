@@ -1,0 +1,143 @@
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+
+# ==============================
+# Environment Variables / Secrets
+# ==============================
+
+.env
+.env.*
+!.env.example
+
+# API Keys
+*.key
+*.pem
+*.secret
+
+# Credentials
+credentials.json
+service-account.json
+
+
+# ==============================
+# Database
+# ==============================
+
+# PostgreSQL dumps
+*.sql
+*.dump
+*.backup
+
+# SQLite (if used locally)
+*.db
+*.sqlite
+*.sqlite3
+
+
+# ==============================
+# Logs
+# ==============================
+
+*.log
+logs/
+
+
+# ==============================
+# AI / ML
+# ==============================
+
+# Model weights
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.keras
+*.pt
+*.pth
+*.onnx
+
+# Training outputs
+models/
+checkpoints/
+runs/
+
+
+# ==============================
+# FastAPI
+# ==============================
+
+# Server cache
+*.pid
+
+# Coverage
+.coverage
+htmlcov/
+
+
+# ==============================
+# Frontend
+# ==============================
+
+# Node modules (if you add npm later)
+node_modules/
+
+# Build files
+dist/
+build/
+
+# Environment files
+frontend/.env
+frontend/.env.*
+
+
+# ==============================
+# Editors
+# ==============================
+
+.vscode/
+.idea/
+
+# VS Code settings
+*.code-workspace
+
+
+# ==============================
+# OS Files
+# ==============================
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+
+
+# ==============================
+# Temporary files
+# ==============================
+
+*.tmp
+*.temp
+*.bak
+*.swp

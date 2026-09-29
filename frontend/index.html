@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agri Advisor</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+    <h1>🌾 Agri Advisor</h1>
+
+    <p>
+        Enter your Crop Cycle ID to view your farm status
+    </p>
+
+
+    <input 
+        type="text" 
+        id="cropCycleId"
+        placeholder="Enter Crop Cycle ID"
+    >
+
+
+    <button onclick="openDashboard()">
+        View Dashboard
+    </button>
+
+
+</div>
+
+
+
+<script>
+
+function openDashboard(){
+
+    const id = document.getElementById("cropCycleId").value;
+
+
+    if(id.trim()==""){
+        alert("Please enter Crop Cycle ID");
+        return;
+    }
+
+
+    window.location.href =
+    `dashboard.html?id=${id}`;
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
