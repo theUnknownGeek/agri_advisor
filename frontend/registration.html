@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Page for a new Farmer</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Register a New Farmer</h1>
+
+      <div id="farmer-section">
+        <h3>Farmer Details</h3>
+
+        <label>Name</label>
+        <input type="text" id="farmer-name" />
+
+        <label>Phone Number</label>
+        <input type="text" id="farmer-Phone" />
+
+        <label>Preferred Language</label>
+        <input type="text" id="farmer-language" />
+
+        <button id="farmer-next">Next</button>
+      </div>
+
+      <div id="farm-section" class="hidden">
+        <h2>Farm Details</h2>
+
+        <label>Name</label>
+        <input type="text" id="farm-name" />
+
+        <label>Latitude</label>
+        <input type="number" step="any" id="farm-latitude" />
+
+        <label>Longitude</label>
+        <input type="number" step="any" id="farm-longitude" />
+
+        <label>Area</label>
+        <input type="number" id="farm-area" />
+
+        <label>Area Unit</label>
+        <input type="text" id="farm-area-unit" />
+
+        <button id="farm-next">Next</button>
+      </div>
+
+      <div id="field-section" class="hidden">
+        <h2>Field Details</h2>
+
+        <label>Field Name</label>
+
+        <input type="text" id="field-name" />
+
+        <label>Area</label>
+
+        <input type="number" id="field-area" />
+
+        <label>Area Unit</label>
+
+        <select id="field-area-unit">
+          <option value="acre">Acre</option>
+
+          <option value="hectare">Hectare</option>
+        </select>
+
+        <label>Soil Type</label>
+
+        <input type="text" id="field-soil" />
+
+        <button id="field-next">Next</button>
+      </div>
+
+      <div id="crop-section" class="hidden">
+        <h2>Crop Details</h2>
+
+        <label>Crop</label>
+        <input type="text" id="crop" />
+
+        <label>Variety</label>
+        <input type="text" id="variety" />
+
+        <label>Season</label>
+        <input type="text" id="season" />
+
+        <label>Planting Date</label>
+        <input type="date" id="planting-date" />
+
+        <label>Establishment Method</label>
+        <input type="text" id="establishment-method" />
+
+        <label>Current Growth Stage</label>
+        <input type="text" id="growth-stage" />
+
+        <button id="create-crop">Next</button>
+      </div>
+
+      <div id="soil-weather-section" class="hidden">
+        <h2>Soil Details</h2>
+
+        <label>Soil Moisture Percentage</label>
+        <input type="number" step="any" id="soil-moisture" />
+
+        <label>Recorded At</label>
+        <input type="datetime-local" id="soil-recorded-at" />
+
+        <label>Soil Data Source</label>
+        <input type="text" id="soil-source" value="manual" />
+
+        <h2>Weather Details</h2>
+
+        <label>Temperature</label>
+        <input type="number" step="any" id="weather-temperature" />
+
+        <label>Humidity</label>
+        <input type="number" step="any" id="weather-humidity" />
+
+        <label>Rainfall</label>
+        <input type="number" step="any" id="weather-rainfall" />
+
+        <label>Rain Probability</label>
+        <input type="number" step="any" id="weather-rain-probability" />
+
+        <label>Wind Speed</label>
+        <input type="number" step="any" id="weather-wind-speed" />
+
+        <label>Weather Timestamp</label>
+        <input type="datetime-local" id="weather-timestamp" />
+
+        <label>Weather Data Type</label>
+        <select id="weather-data-type">
+          <option value="CURRENT">Current</option>
+          <option value="HISTORICAL">Historical</option>
+          <option value="FORECAST">Forecast</option>
+        </select>
+
+        <br /><br />
+
+        <button id="generate-recommendation">Generate Recommendation</button>
+      </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/register.js"></script>
+  </body>
+</html>

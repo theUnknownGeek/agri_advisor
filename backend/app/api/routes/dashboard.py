@@ -93,23 +93,23 @@ def get_dashboard(
 
 
         "soil":{
-            "moisture":soil.moisture_percentage
+            "moisture":soil.moisture_percentage if soil else None
         },
 
 
         "weather":{
-            "temperature":weather.temperature,
-            "humidity":weather.humidity,
-            "rain_probability":weather.rain_probability
+            "temperature":weather.temperature if weather else None,
+            "humidity":weather.humidity if weather else None,
+            "rain_probability":weather.rain_probability if weather else None
         },
 
 
         "recommendation":{
 
-            "decision":recommendation.decision,
-            "reason":recommendation.reason,
-            "confidence":float(recommendation.confidence),
-            "status":recommendation.status
+            "decision":recommendation.decision if recommendation else None,
+            "reason":recommendation.reason if recommendation else None,
+            "confidence":float(recommendation.confidence) if recommendation else None,
+            "status":recommendation.status if recommendation else None
 
         }
 

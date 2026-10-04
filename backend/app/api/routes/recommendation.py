@@ -5,7 +5,7 @@ from uuid import UUID
 
 
 from app.db.database import get_db
-from app.models import Recommendation
+from app.models import Recommendation, Crop_cycles, Field, SoilMoisture, Farm, IrrigationLog, soil_moisture, WeatherData
 from app.schemas import (
     RecommendationCreate,
     RecommendationResponse,
@@ -172,7 +172,46 @@ def delete_recommendation(
 
 @router.post("/generate/{crop_cycle_id}", response_model=RecommendationResponse)
 def generate(crop_cycle_id: UUID, db:Session = Depends(get_db)):
-    soil_moisture = 35
-    rain_probability = 20
-    recommendation = create_recommendation(db, soil_moisture, rain_probability, crop_cycle_id)
+    crop_cycle = db.query(Crop_cycles).filter(Crop_cycles.id==crop_cycle_id).first()
+
+    if crop_cycle is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Crop cycle not found"
+        )
+
+    field = db.query(Field).filter(Field.id==crop_cycle.field_id).first()
+
+    if field is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Field not found"
+        )
+
+    soil = db.query(SoilMoisture).filter(SoilMoisture.field_id == field.id).order_by(SoilMoisture.recorded_at.desc()).first()
+
+    if soil is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Soil Data not found"
+        )
+
+    weather = db.query(WeatherData).filter(WeatherData.field_id==field.id).order_by(WeatherData.timestamp.desc()).first()
+
+    if weather is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Weather Data not found"
+        )
+
+    soil_moisture = soil.moisture_percentage
+    rain_probability = weather.rain_probability
+
+    recommendation = create_recommendation(
+        db,
+        soil_moisture,
+        rain_probability,
+        crop_cycle_id
+    )
+
     return recommendation
